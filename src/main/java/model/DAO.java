@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class DAO {
 	private String driver = "com.mysql.cj.jdbc.Driver";
-	private String url = "jdbc:mysql://127.0.0.1:3307/sitemaBancario?useTimeZone=true&serverTimeZone=UTC";
+	private String url = "jdbc:mysql://127.0.0.1:3307/sistemaBancario?useTimeZone=true&serverTimeZone=UTC";
 	private String user = "root";
 	private String password = "12345678";
 	

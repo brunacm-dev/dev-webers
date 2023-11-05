@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO;
 
 
-@WebServlet(urlPatterns={"auth"})
+@WebServlet(urlPatterns={"/auth"})
 public class auth extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
