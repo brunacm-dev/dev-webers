@@ -1,6 +1,6 @@
 function showLoginForm(userType) {
-    var loginForm = document.getElementById("loginForm")
-    var userTypeMessage = document.getElementById("userTypeMessage")
+    const loginForm = document.getElementById("loginForm")
+    const userTypeMessage = document.getElementById("userTypeMessage")
 
     userTypeMessage.textContent =
       userType === "cliente" ? "Login como Cliente" : "Login como Admin"
@@ -10,17 +10,17 @@ function showLoginForm(userType) {
   }
 
   function hideLoginForm() {
-    var loginForm = document.getElementById("loginForm")
+    const loginForm = document.getElementById("loginForm")
     loginForm.classList.add("d-none")
   }
 
   function handleLogin() {
-    var userType = document
+    const userType = document
       .getElementById("loginForm")
       .classList.contains("d-none")
       ? ""
       : "cliente" // Definir o tipo de usuário com base na visibilidade do formulário
-    var loginEmail = document.getElementById("loginEmail").value
+    const loginEmail = document.getElementById("loginEmail").value
 
     // Lógica para redirecionar com base no tipo de usuário
     if (userType === "admin") {
