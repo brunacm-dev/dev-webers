@@ -13,6 +13,7 @@ public class UsuarioDAO {
 	private String sqlCreate = "INSERT INTO Usuarios(nome, sobrenome, email, cpf, senha) VALUES (?, ?, ?, ?, ?)";
 	private String sqlAll = "Select * from Usuarios";
 	private String sqlUpdate = "UPDATE Usuarios Set nome = ?, sobrenome = ?, email = ?, senha = ? WHERE cpf = ?";
+	private String sqlDelete = "DELETE from Usuarios WHERE cpf = ?";
 	
 	public UsuarioDAO() {
 	}
@@ -121,6 +122,23 @@ public class UsuarioDAO {
 		} catch (Exception e) {
 			System.out.println(e);
 			return false;
+		} finally {
+			db.closeConexao();
+		}
+	}
+	
+	public void deleteByCpf(String cpf) {
+		Conexao db = new Conexao();
+		Connection con = db.getConexao();
+
+		PreparedStatement pstm = null;
+
+		try {
+			pstm = con.prepareStatement(sqlDelete);
+			pstm.setString(1, cpf);
+			pstm.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e);
 		} finally {
 			db.closeConexao();
 		}
