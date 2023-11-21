@@ -12,6 +12,7 @@ import model.Usuario;
 public class UsuarioDAO {
 	private String sqlCreate = "INSERT INTO Usuarios(nome, sobrenome, email, cpf, senha) VALUES (?, ?, ?, ?, ?)";
 	private String sqlAll = "Select * from Usuarios";
+	private String sqlUpdate = "UPDATE Usuarios Set nome = ?, sobrenome = ?, email = ?, senha = ? WHERE cpf = ?";
 	
 	public UsuarioDAO() {
 	}
@@ -70,6 +71,56 @@ public class UsuarioDAO {
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
+		} finally {
+			db.closeConexao();
+		}
+	}
+	
+	public boolean update(Usuario usuario, String cpf) {
+		Conexao db = new Conexao();
+		Connection con = db.getConexao();
+
+		PreparedStatement pstm = null;
+
+		try {
+			pstm = con.prepareStatement(sqlUpdate);
+
+			pstm.setString(1, usuario.getNome());
+			pstm.setString(2, usuario.getSobrenome());
+			pstm.setString(3, usuario.getEmail());
+			pstm.setString(4, usuario.getSenha());
+			pstm.setString(5, cpf);
+
+			pstm.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		} finally {
+			db.closeConexao();
+		}
+	}
+	
+	public boolean update(Usuario usuario) {
+		Conexao db = new Conexao();
+		Connection con = db.getConexao();
+
+		PreparedStatement pstm = null;
+
+		try {
+			pstm = con.prepareStatement(sqlUpdate);
+
+			pstm.setString(1, usuario.getNome());
+			pstm.setString(2, usuario.getSobrenome());
+			pstm.setString(3, usuario.getEmail());
+			pstm.setString(4, usuario.getSenha());
+			pstm.setString(5, usuario.getCpf());
+
+			pstm.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
 		} finally {
 			db.closeConexao();
 		}
