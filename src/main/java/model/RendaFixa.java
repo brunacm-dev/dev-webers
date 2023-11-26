@@ -3,6 +3,7 @@ package model;
 import java.util.Date;
 
 public class RendaFixa {
+	private int id;
 	private String nome;
 	private float porcentagem;
 	private int tipo;
@@ -18,6 +19,14 @@ public class RendaFixa {
 		this.porcentagem = porcentagem;
 		this.tipo = tipo;
 		this.data_resgate = data_resgate;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -51,5 +60,4 @@ public class RendaFixa {
 	public void setData_resgate(Date data_resgate) {
 		this.data_resgate = data_resgate;
 	}
-
 }
