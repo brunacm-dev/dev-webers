@@ -53,32 +53,32 @@
           <h3>Insira seus dados</h3>
           <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" />
+            <input type="text" class="form-control" id="nome" name="nome" required />
           </div>
           <div class="mb-3">
             <label for="sobrenome" class="form-label">Sobrenome</label>
-            <input type="text" class="form-control" id="sobrenome" name="sobrenome" />
+            <input type="text" class="form-control" id="sobrenome" name="sobrenome" required />
           </div>
 
           <!-- CPF -->
           <div class="mb-3">
             <label for="cpf" class="form-label">CPF</label>
             <input type="text" class="form-control" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-              placeholder="Formato: 123.456.789-01" />
+              placeholder="Formato: 123.456.789-01" required />
           </div>
 
           <!-- Celular -->
           <div class="mb-3">
             <label for="celular" class="form-label">Celular</label>
             <input type="tel" class="form-control" id="celular" name="celular" pattern="[0-9]{2}[0-9]{4,5}[0-9]{4}"
-              placeholder="Formato: 999991234" />
+              placeholder="Formato: 999991234" required />
           </div>
 
           <!-- Email e Senha -->
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" name="email"
-              pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="Formato: seuemail@email.com" />
+              pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="Formato: seuemail@email.com" required />
           </div>
 
           <h3>Escolha sua senha de login</h3>

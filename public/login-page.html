@@ -34,20 +34,6 @@
                 <a class="nav-link active" aria-current="page" href="/public/contact.html">Contato</a>
               </li>
             </ul>
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/public/form-register.html">
-                  <i class="bi bi-person-circle
-                "></i>
-                  Solicitar Cadastro</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/public/login-page.html">
-                  <i class="bi bi-box-arrow-in-right
-                "></i>
-                  Login</a>
-              </li>
-            </ul>
           </div>
         </div>
       </nav>
@@ -55,49 +41,32 @@
 
 
     <div class="bg-dark text-light text-center py-5">
-      <h1>Contato</h1>
+      <h1>Login</h1>
     </div>
 
 
     <main>
+
+      
       <section class="p-5">
-        <div class="container p-4">
-          <div class="row">
-            <div class="col-lg-6">
-              <h2 class="mb-4">Informações de Contato</h2>
-              <p>
-                <i class="bi bi-geo-alt-fill fs-3"></i> Endereço: Rua UFF,
-                123, Niteroi, RJ
-              </p>
-              <p>
-                <i class="bi bi-envelope-fill fs-3"></i> E-mail:
-                dev-webers@meusite.com
-              </p>
-              <p>
-                <i class="bi bi-phone-fill fs-3"></i> Telefone: (21) 3456-7890
-              </p>
+        <div class="container mt-5 mb-5 py-5 mx-auto w-50">
+
+          <form id="loginForm" onsubmit="handleLogin(); return false;">
+            <!-- Nome de usuário (pode ser email) -->
+            <h3 class="mb-4">Insira seus dados</h3>
+            <div class="mb-3">
+              <label for="username" class="form-label">Usuário</label>
+              <input type="text" class="form-control" id="username" name="username" />
             </div>
-            <div class="col-lg-6">
-              <h2 class="mb-4">Entre em Contato</h2>
-              <form>
-                <div class="mb-3">
-                  <label for="name" class="form-label">Nome</label>
-                  <input type="text" class="form-control" id="name" placeholder="Seu nome" required />
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">E-mail</label>
-                  <input type="email" class="form-control" id="email" placeholder="Seu e-mail" required />
-                </div>
-                <div class="mb-3">
-                  <label for="message" class="form-label">Mensagem</label>
-                  <textarea class="form-control" id="message" rows="5" placeholder="Digite sua mensagem"></textarea>
-                </div>
-                <button type="submit" class="btn btn-secondary">
-                  Enviar
-                </button>
-              </form>
+
+            <!-- Senha -->
+            <div class="mb-3 py-4">
+              <label for="senha" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="senha" name="senha" required />
             </div>
-          </div>
+
+            <button type="submit" class="btn btn-primary">Entrar</button>
+          </form>
         </div>
       </section>
     </main>
