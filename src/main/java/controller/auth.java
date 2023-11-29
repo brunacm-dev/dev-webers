@@ -29,7 +29,7 @@ public class auth extends HttpServlet {
 		user.setEmail("testeee@testeee.com");
 		user.setCpf("10577467386");
 		user.setSenha("teste1234");
-		
+			
 		// dao.save(user);
 		
 		//for(Usuario user : dao.all()) {
@@ -41,7 +41,7 @@ public class auth extends HttpServlet {
 		
 		dao.deleteByCpf("10577467386");
 		
-		
+
 		
 	}
 
