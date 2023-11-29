@@ -43,12 +43,12 @@
               </li>
               <li class="nav-item">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                <a class="nav-link dropdown-toggle" onclick="window.location.href='./views/pagina-login.jsp'" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <i class="bi bi-box-arrow-in-right"></i>
                   Login
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark">
+                <!-- <ul class="dropdown-menu dropdown-menu-dark">
                   <li>
                     <a class="dropdown-item" href="#admin" onclick="showLoginForm('admin')">Admin</a>
                   </li>
@@ -58,7 +58,7 @@
                   <li>
                     <a class="dropdown-item" href="#cliente" onclick="showLoginForm('cliente')">Cliente</a>
                   </li>
-                </ul>
+                </ul> -->
               </li>
             </ul>
           </div>
@@ -66,7 +66,7 @@
       </nav>
 
       <div>
-        <img src="/resources/images/dev-smart-bank.png" class="img-fluid" alt="Imagem de Header">
+        <img src="./resources/images/dev-smart-bank.png" class="img-fluid" alt="Imagem de Header">
       </div>
 
 
