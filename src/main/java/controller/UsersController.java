@@ -7,13 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.ContaDAO;
 import DAO.UsuarioDAO;
+import model.Conta;
 import model.Usuario;
 
 @WebServlet("/users")
 public class UsersController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UsuarioDAO DaoUsuario = new UsuarioDAO();
+	ContaDAO DaoConta = new ContaDAO();
        
     public UsersController() {
         super();
@@ -46,10 +49,16 @@ public class UsersController extends HttpServlet {
 		user.SetEmSolicitacao();
 		user.SetCliente();
 		
-		if(DaoUsuario.save(user)) {
-			request.setAttribute("usuarios", DaoUsuario.all());
+		if(DaoUsuario.save(user) ) {
+			Conta conta = new Conta();
+			conta.setCpf(user.getCpf());
 			
-			response.sendRedirect(request.getContextPath() + "/views/admin.jsp");
+			if(DaoConta.save(conta)) {
+				request.setAttribute("usuarios", DaoUsuario.all());
+				response.sendRedirect(request.getContextPath() + "/views/admin.jsp");
+			} else {
+				response.sendRedirect(request.getContextPath() + "/views/form-cadastro.jsp");
+			}
 		} else {
 			response.sendRedirect(request.getContextPath() + "/views/form-cadastro.jsp");
 		}
