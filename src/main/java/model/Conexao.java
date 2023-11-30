@@ -1,4 +1,4 @@
-package DAO;
+package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ public class Conexao {
 	private String driver = "com.mysql.cj.jdbc.Driver";
 	private String url = "jdbc:mysql://127.0.0.1:3306/sistemaBancario?useTimeZone=true&serverTimeZone=UTC";
 	private String user = "root";
-	private String password = "P1ng0l1nd0";
+	private String password = "miguel2021";
 	private Connection conexao = null;
 	
 	public Conexao() {

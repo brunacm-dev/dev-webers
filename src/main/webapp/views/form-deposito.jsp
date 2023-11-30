@@ -1,3 +1,5 @@
+<%@page import="entities.Conta"%>
+<%@page import="entities.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -22,6 +24,16 @@
 </head>
 
 <body class="bg-light">
+				<%
+			HttpSession sessao = request.getSession();
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Conta conta = (Conta) sessao.getAttribute("conta");
+			if (usuario != null && !usuario.isAdmin()) {
+
+			} else {
+				response.sendRedirect("login-page.jsp");
+			}
+			%>
 	<header>
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fs-5">

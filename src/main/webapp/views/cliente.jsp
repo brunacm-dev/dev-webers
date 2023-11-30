@@ -1,4 +1,5 @@
-<%@page import="model.Usuario"%>
+<%@page import="entities.Conta"%>
+<%@page import="entities.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -55,8 +56,10 @@
 			<h1><%
 			HttpSession sessao = request.getSession();
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Conta conta = (Conta) sessao.getAttribute("conta");
 			if (usuario != null && !usuario.isAdmin()) {
-				out.println("Bem-vindo, " + usuario.getNome());
+				out.println("Bem-vindo, " + usuario.getNome() + "<br>");
+				out.println("Saldo:R$" + conta.getSaldo());
 			} else {
 				response.sendRedirect("login-page.jsp");
 			}

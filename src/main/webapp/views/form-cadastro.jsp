@@ -1,3 +1,4 @@
+<%@page import="entities.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -24,6 +25,15 @@
 </head>
 
 <body class="bg-light">
+			<%
+			HttpSession sessao = request.getSession();
+			Usuario usuarioLogado = (Usuario) sessao.getAttribute("usuario");
+			if (usuarioLogado != null && usuarioLogado.isAdmin()) {
+				
+			} else {
+				response.sendRedirect("login-page.jsp");
+			}
+			%>
 	<header>
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fs-5">
@@ -86,7 +96,7 @@
 						required />
 				</div>
 
-				<button type="submit" class="btn btn-primary">Cadastrar</button>
+				<input name="acao" value="Cadastrar" type="submit" class="btn btn-primary">Cadastrar</button>
 			</form>
 
 			<div id="confirmacaoMensagem" class="mt-3 d-none">

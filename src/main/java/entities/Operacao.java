@@ -1,4 +1,4 @@
-package model;
+package entities;
 
 public class Operacao {
 	private int	id;

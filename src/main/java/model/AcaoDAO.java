@@ -1,4 +1,4 @@
-package DAO;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Acao;
+import entities.Acao;
 
 public class AcaoDAO {
 	private String sqlCreate = "INSERT INTO Acoes(nome, descricao, preco_unitario) VALUES (?, ?, ?)";

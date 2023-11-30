@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.ContaDAO;
-import DAO.UsuarioDAO;
-import model.Conta;
-import model.Usuario;
+import entities.Conta;
+import entities.Usuario;
+import model.ContaDAO;
+import model.UsuarioDAO;
 
 
 @WebServlet(urlPatterns={"/auth"})
@@ -26,7 +26,6 @@ public class auth extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Deu certo a chamada!");
-		
 		Usuario user = new Usuario();
 		user.setNome("Henriquee3");
 		user.setSobrenome("");
@@ -70,6 +69,7 @@ public class auth extends HttpServlet {
 				//redirecionar 
 //				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin.jsp");
 //				dispatcher.forward(request,response);
+//				request.setAttribute("usuarios",usuarioDao.all());
 				response.sendRedirect("/sistema-bancario/views/admin.jsp");
 			}else {
 //				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/cliente.jsp");

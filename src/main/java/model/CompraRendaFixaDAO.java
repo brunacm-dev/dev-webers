@@ -1,4 +1,4 @@
-package DAO;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.CompraRendaFixa;
+import entities.CompraRendaFixa;
 
 public class CompraRendaFixaDAO {
 	private String sqlCreate = "INSERT INTO CompraRendaFixa(valor_investido, datetime_compra, codigo, renda_fixa_id) VALUES (?, ?, ?, ?)";

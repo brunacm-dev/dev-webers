@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.ContaDAO;
-import DAO.OperacaoDAO;
-import model.Conta;
-import model.Operacao;
-import model.Usuario;
+import entities.Conta;
+import entities.Operacao;
+import entities.Usuario;
+import model.ContaDAO;
+import model.OperacaoDAO;
 
 /**
  * Servlet implementation class operacao
@@ -46,10 +46,13 @@ public class operacao extends HttpServlet {
 		float valor = Float.parseFloat(request.getParameter("valor"));
 		String action = request.getParameter("action");
 		HttpSession sessao = request.getSession();
+		
 		Operacao operacao = null;
 		Usuario usuario = (Usuario)sessao.getAttribute("usuario");
 		ContaDAO contaDAO = new ContaDAO();
+		
 		OperacaoDAO operacaoDAO = new OperacaoDAO();
+		
 		if(usuario !=  null) {
 			Conta conta = contaDAO.get(usuario.getCpf());
 			if(action.equals("depositar")) {
@@ -63,11 +66,8 @@ public class operacao extends HttpServlet {
 				contaDAO.update(conta);
 				operacaoDAO.save(operacao);
 			}
+			sessao.setAttribute("conta", conta);
 			response.sendRedirect("/sistema-bancario/views/cliente.jsp");
-//			if(operacao != null) {
-//				contaDAO.update(conta);
-//				operacaoDAO.save(operacao);
-//			}
 		}
 		
 //		doGet(request, response);

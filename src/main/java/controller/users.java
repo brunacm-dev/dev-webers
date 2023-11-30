@@ -7,18 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.ContaDAO;
-import DAO.UsuarioDAO;
-import model.Conta;
-import model.Usuario;
+import entities.Conta;
+import entities.Usuario;
+import model.ContaDAO;
+import model.UsuarioDAO;
 
 @WebServlet("/users")
-public class UsersController extends HttpServlet {
+public class users extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UsuarioDAO DaoUsuario = new UsuarioDAO();
 	ContaDAO DaoConta = new ContaDAO();
        
-    public UsersController() {
+    public users() {
         super();
 
     }
@@ -54,7 +54,7 @@ public class UsersController extends HttpServlet {
 			conta.setCpf(user.getCpf());
 			
 			if(DaoConta.save(conta)) {
-				request.setAttribute("usuarios", DaoUsuario.all());
+//				request.setAttribute("usuarios", DaoUsuario.all());
 				response.sendRedirect(request.getContextPath() + "/views/admin.jsp");
 			} else {
 				response.sendRedirect(request.getContextPath() + "/views/form-cadastro.jsp");

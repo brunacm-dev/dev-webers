@@ -1,4 +1,7 @@
-<%@page import="model.Usuario"%>
+<%@page import="java.util.List"%>
+<%@page import="model.UsuarioDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="entities.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -48,22 +51,22 @@
 								<i class="bi bi-person-circle"></i> Fazer Cadastro
 						</a></li>
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="${pageContext.request.contextPath}/index.jsp"> Logout </a></li>
+							href="${pageContext.request.contextPath}/logout"> Logout </a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<div class="bg-dark text-light text-center py-5">
 			<h1>
-				<%-- <%
+				<%
 			HttpSession sessao = request.getSession();
-			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-			if (usuario != null && usuario.isAdmin()) {
-				out.println("Bem-vindo, " + usuario.getNome());
+			Usuario usuarioLogado = (Usuario) sessao.getAttribute("usuario");
+			if (usuarioLogado != null && usuarioLogado.isAdmin()) {
+				out.println("Bem-vindo, " + usuarioLogado.getNome());
 			} else {
 				response.sendRedirect("login-page.jsp");
 			}
-			%> --%>
+			%>
 			</h1>
 		</div>
 	</header>
@@ -79,36 +82,34 @@
 										<tr>
 											<th>Nome</th>
 											<th>Sobrenome</th>
+	
 											<th>CPF</th>
-											<th>Status</th>
+
 											<th>Email</th>
 											<th>Ações</th>
 										</tr>
 									</thead>
 									<tbody>
 										<%
-										for (Usuario usuario : listaDeClientes) {
+										UsuarioDAO DaoUsuario = new UsuarioDAO();
+										List<Usuario> usuarios = DaoUsuario.all();
+										for (Usuario usuario : usuarios) {
 										%>
 										<tr>
 											<td><%=usuario.getNome()%></td>
 											<td><%=usuario.getSobrenome()%></td>
+
 											<td><%=usuario.getCpf()%></td>
 											<td><%=usuario.getEmail()%></td>
-											<td><%=usuario.getSaldo()%></td>
+											<td><a href="emitirSaldo.jsp" class="btn btn-info">Emitir
+													Saldo</a> <a href="emitirExtrato.jsp" class="btn btn-info">Emitir
+													Extrato</a></td>
+									
 										</tr>
 										<%
 										}
 										%>
-										<tr>
-											<td>Nome do Cliente</td>
-											<td>Sobrenome do Cliente</td>
-											<td>123.456.789-00</td>
-											<td>Pendente</td>
-											<td>cliente@email.com</td>
-											<td><a href="emitirSaldo.jsp" class="btn btn-info">Emitir
-													Saldo</a> <a href="emitirExtrato.jsp" class="btn btn-info">Emitir
-													Extrato</a></td>
-										</tr>
+										
 									</tbody>
 								</table>
 							</div>
