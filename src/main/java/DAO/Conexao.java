@@ -7,9 +7,9 @@ import java.sql.SQLException;
 
 public class Conexao {
 	private String driver = "com.mysql.cj.jdbc.Driver";
-	private String url = "jdbc:mysql://127.0.0.1:3307/sistemaBancario?useTimeZone=true&serverTimeZone=UTC";
+	private String url = "jdbc:mysql://127.0.0.1:3306/sistemaBancario?useTimeZone=true&serverTimeZone=UTC";
 	private String user = "root";
-	private String password = "12345678";
+	private String password = "miguel2021";
 	private Connection conexao = null;
 	
 	public Conexao() {

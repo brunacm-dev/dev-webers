@@ -54,12 +54,12 @@
 		<section class="p-5">
 			<div class="container mt-5 mb-5 py-5 mx-auto w-50">
 
-				<form id="loginForm" onsubmit="handleLogin(); return false;">
+				<form id="loginForm" action="/sistema-bancario/auth" method="post">
 					<!-- Nome de usuário (pode ser email) -->
 					<h3 class="mb-4">Insira seus dados</h3>
 					<div class="mb-3">
-						<label for="username" class="form-label">Usuário</label> <input
-							type="text" class="form-control" id="username" name="username" />
+						<label for="cpf" class="form-label">Usuário</label> <input
+							type="text" class="form-control" id="username" name="cpf" />
 					</div>
 
 					<!-- Senha -->

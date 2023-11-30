@@ -89,7 +89,7 @@
 											<td>Pendente</td>
 											<td>cliente@email.com</td>
 											<td>
-												<button class="btn btn-success">Cadastrar</button>
+												<button href="/sistema-bancario/cadastroUsuario?acao=cadastrarUsuario" class="btn btn-success">Cadastrar</button>
 												<button class="btn btn-danger">Recusar</button> <a
 												href="emitirSaldo.jsp" class="btn btn-info">Emitir Saldo</a>
 												<a href="emitirExtrato.jsp" class="btn btn-info">Emitir

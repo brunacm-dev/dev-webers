@@ -69,5 +69,13 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public boolean isAdmin() {
+		return this.tipo == 1;
+	}
+	
+	public boolean isClient() {
+		return this.tipo == 0;
+	}
 
 }

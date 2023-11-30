@@ -10,6 +10,7 @@ import model.Usuario;
 
 
 public class UsuarioDAO {
+	private String sqlGet = "SELECT * FROM Usuarios WHERE cpf = ?";
 	private String sqlCreate = "INSERT INTO Usuarios(nome, sobrenome, email, cpf, senha) VALUES (?, ?, ?, ?, ?)";
 	private String sqlAll = "Select * from Usuarios";
 	private String sqlUpdate = "UPDATE Usuarios Set nome = ?, sobrenome = ?, email = ?, senha = ? WHERE cpf = ?";
@@ -39,6 +40,46 @@ public class UsuarioDAO {
 		} catch (Exception e) {
 			System.out.println(e);
 			return false;
+		} finally {
+			db.closeConexao();
+		}
+	}
+	
+	public Usuario get(String cpf) {
+		Conexao db = new Conexao();
+		Connection con = db.getConexao();
+//		List<Usuario> usuarios = new ArrayList<Usuario>();
+
+		PreparedStatement pstm = null;
+		ResultSet res = null;
+
+		try {
+			pstm = con.prepareStatement(sqlGet);
+			pstm.setString(1, cpf);
+			res = pstm.executeQuery();
+			
+			Usuario user = new Usuario();
+			if(res.next()) {
+				user.setNome(res.getString("nome"));
+				user.setSobrenome(res.getString("sobrenome"));
+				user.setEmail(res.getString("email"));
+				user.setTipo(res.getInt("tipo"));
+				user.setCpf(res.getString("cpf"));
+				user.setSenha(res.getString("senha"));				
+			}
+			if(user != null) {
+				System.out.println(user.getCpf());				
+			}
+//			while(res.next()) {
+
+//				
+//				usuarios.add(user);
+//			}
+			
+			return user;
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
 		} finally {
 			db.closeConexao();
 		}
