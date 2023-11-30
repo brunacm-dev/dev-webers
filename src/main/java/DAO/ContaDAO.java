@@ -10,12 +10,44 @@ import model.Conta;
 
 
 public class ContaDAO {
+	private String sqlGet = "SELECT * FROM Contas WHERE cpf = ?";
 	private String sqlCreate = "INSERT INTO Contas(codigo, cpf) VALUES (?, ?)";
 	private String sqlAll = "Select * from Contas";
 	private String sqlUpdate = "UPDATE Contas Set saldo = ?, cpf = ? WHERE codigo = ?";
 	private String sqlDelete = "DELETE from Contas WHERE codigo = ?";
 	
 	public ContaDAO() {
+	}
+	
+	public Conta get(String cpf) {
+		Conexao db = new Conexao();
+		Connection con = db.getConexao();
+		Conta conta = new Conta();
+
+		PreparedStatement pstm = null;
+		ResultSet res = null;
+
+		try {
+			pstm = con.prepareStatement(sqlGet);
+			pstm.setString(1, cpf);
+			res = pstm.executeQuery();
+
+			if(res.next()) {
+				conta.setCodigo(res.getString("codigo"));
+				conta.setSaldo(res.getFloat("saldo"));
+				conta.setCpf(res.getString("cpf"));
+				
+			}else {
+				System.out.println("Conta não encontrada");
+			}
+			
+			return conta;
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		} finally {
+			db.closeConexao();
+		}
 	}
 	
 	public boolean save(Conta conta) {

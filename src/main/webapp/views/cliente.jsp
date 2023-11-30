@@ -75,7 +75,7 @@
             <div class="col-md-4 col-12 mb-3">
                 <div class="card bg-primary">
                     <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
-                        <a href="#" class="btn btn-primary btn-lg" id="btn-deposito">Depósito</a>
+                        <a href="${pageContext.request.contextPath}/views/form-deposito.jsp" class="btn btn-primary btn-lg" id="btn-deposito">Depósito</a>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
             <div class="col-md-4 col-12 mb-3">
                 <div class="card bg-primary">
                     <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
-                        <a href="#" class="btn btn-primary btn-lg" id="btn-saque">Saque</a>
+                        <a href="${pageContext.request.contextPath}/views/form-saque.jsp" class="btn btn-primary btn-lg" id="btn-saque">Saque</a>
                     </div>
                 </div>
             </div>

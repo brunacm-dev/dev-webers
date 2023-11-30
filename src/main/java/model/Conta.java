@@ -48,6 +48,13 @@ public class Conta {
 		this.cpf = cpf;
 	}
 	
+	public void depositar(float valor) {
+		this.saldo = this.saldo + valor;
+	}
+	
+	public void sacar(float valor) {
+		this.saldo = this.saldo - valor;
+	}
 
     private String gerarCodigo() {
         String caracteres = "1234567890";

@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.ContaDAO;
 import DAO.UsuarioDAO;
+import model.Conta;
 import model.Usuario;
 
 
@@ -51,6 +52,8 @@ public class auth extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		doGet(request, response);
 		Usuario usuario = usuarioDao.get(request.getParameter("cpf"));
+		ContaDAO contaDAO = new ContaDAO();
+		Conta conta = contaDAO.get(usuario.getCpf());
 		String senha = request.getParameter("senha");
 		
 		HttpSession sessao = request.getSession();
@@ -58,7 +61,8 @@ public class auth extends HttpServlet {
 //		System.out.println(usuario.getNome());	
 		if(usuario != null && senha.equals(usuario.getSenha())) {
 			sessao.setAttribute("usuario", usuario);
-			
+			sessao.setAttribute("conta", conta);
+						
 			
 //			System.out.println("Usuario encontrado");
 			//Criar sessao com o usuario
