@@ -47,6 +47,8 @@ public class UsersController extends HttpServlet {
 		user.SetCliente();
 		
 		if(DaoUsuario.save(user)) {
+			request.setAttribute("usuarios", DaoUsuario.all());
+			
 			response.sendRedirect(request.getContextPath() + "/views/admin.jsp");
 		} else {
 			response.sendRedirect(request.getContextPath() + "/views/form-cadastro.jsp");
