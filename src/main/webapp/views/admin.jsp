@@ -1,3 +1,4 @@
+<%@page import="model.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,6 +24,15 @@
 
 <body class="bg-light">
 <body class="bg-light">
+	<%
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		if(usuario != null && usuario.isAdmin()){
+			out.println("Bem-vindo, " + usuario.getNome());
+		}else{
+			response.sendRedirect("login-page.jsp");
+		}
+	%>
 	<header>
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fs-5">

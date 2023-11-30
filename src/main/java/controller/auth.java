@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAO.UsuarioDAO;
 import model.Usuario;
@@ -52,18 +53,24 @@ public class auth extends HttpServlet {
 		Usuario usuario = usuarioDao.get(request.getParameter("cpf"));
 		String senha = request.getParameter("senha");
 		
+		HttpSession sessao = request.getSession();
+		
 //		System.out.println(usuario.getNome());	
 		if(usuario != null && senha.equals(usuario.getSenha())) {
+			sessao.setAttribute("usuario", usuario);
+			
 			
 //			System.out.println("Usuario encontrado");
 			//Criar sessao com o usuario
 			if(usuario.isAdmin()) {
 				//redirecionar 
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin.jsp");
-				dispatcher.forward(request,response);
+//				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin.jsp");
+//				dispatcher.forward(request,response);
+				response.sendRedirect("/sistema-bancario/views/admin.jsp");
 			}else {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/cliente.jsp");
-				dispatcher.forward(request,response);
+//				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/cliente.jsp");
+//				dispatcher.forward(request,response);
+				response.sendRedirect("/sistema-bancario/views/cliente.jsp");
 			}
 			//REdireciona
 		}else {
