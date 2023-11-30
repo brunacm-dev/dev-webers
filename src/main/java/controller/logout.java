@@ -31,7 +31,7 @@ public class logout extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.getSession().invalidate();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 		rd.forward(request, response);
 	}
 

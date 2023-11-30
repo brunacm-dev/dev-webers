@@ -44,10 +44,6 @@
 					</ul>
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="${pageContext.request.contextPath}/views/form-cadastro.jsp">
-								<i class="bi bi-person-circle"></i> Solicitar Cadastro
-						</a></li>
-						<li class="nav-item"><a class="nav-link" aria-current="page"
 							href="${pageContext.request.contextPath}/views/login-page.jsp">
 								<i class="bi bi-box-arrow-in-right"></i> Login
 						</a></li>

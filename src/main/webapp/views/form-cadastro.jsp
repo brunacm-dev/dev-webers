@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<!-- quando confirmar cadastro, atualizar lista da pagina do admin -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,8 +54,8 @@
 	<main>
 		<div class="container mt-4 py-4">
 
-			<form id="registerForm" method="post">
-				<!-- Nome e Sobrenome -->
+			<form id="registerForm"
+				action="${pageContext.request.contextPath}/users" method="post">
 				<h3>Insira seus dados</h3>
 				<div class="mb-3">
 					<label for="nome" class="form-label">Nome</label> <input
@@ -65,15 +67,12 @@
 						required />
 				</div>
 
-				<!-- CPF -->
 				<div class="mb-3">
 					<label for="cpf" class="form-label">CPF</label> <input type="text"
-						class="form-control" id="cpf" name="cpf"
-						pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-						placeholder="Formato: 123.456.789-01" required />
+						class="form-control" id="cpf" name="cpf" maxlength="11"
+						placeholder="Formato: 12345678901" required />
 				</div>
 
-				<!-- Email e Senha -->
 				<div class="mb-3">
 					<label for="email" class="form-label">Email</label> <input
 						type="email" class="form-control" id="email" name="email"
@@ -81,7 +80,6 @@
 						placeholder="Formato: seuemail@email.com" required />
 				</div>
 
-				<h3>Escolha sua senha de login</h3>
 				<div class="mb-3">
 					<label for="senha" class="form-label">Senha</label> <input
 						type="password" class="form-control" id="senha" name="senha"
@@ -97,7 +95,6 @@
 			</div>
 		</div>
 	</main>
-	<!-- Footer -->
 	<footer class="bg-custom text-center text-lg-start">
 		<div class="bg-dark text-light text-center p-4">
 			<p>

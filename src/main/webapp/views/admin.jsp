@@ -23,18 +23,7 @@
 </head>
 
 <body class="bg-light">
-<body class="bg-light">
-	<%
-		HttpSession sessao = request.getSession();
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		if(usuario != null && usuario.isAdmin()){
-			out.println("Bem-vindo, " + usuario.getNome());
-		}else{
-			response.sendRedirect("login-page.jsp");
-		}
-	%>
 	<header>
-		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fs-5">
 			<div class="container-fluid">
 				<span class="navbar-brand text-light">Smart Bank | </span>
@@ -56,18 +45,26 @@
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item"><a class="nav-link" aria-current="page"
 							href="${pageContext.request.contextPath}/views/form-cadastro.jsp">
-								<i class="bi bi-person-circle"></i> Solicitar Cadastro
+								<i class="bi bi-person-circle"></i> Fazer Cadastro
 						</a></li>
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="${pageContext.request.contextPath}/views/login-page.jsp">
-								<i class="bi bi-box-arrow-in-right"></i> Login
-						</a></li>
+							href="${pageContext.request.contextPath}/index.jsp"> Logout </a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<div class="bg-dark text-light text-center py-5">
-			<h1>Area do Admin</h1>
+			<h1>
+				<%-- <%
+			HttpSession sessao = request.getSession();
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			if (usuario != null && usuario.isAdmin()) {
+				out.println("Bem-vindo, " + usuario.getNome());
+			} else {
+				response.sendRedirect("login-page.jsp");
+			}
+			%> --%>
+			</h1>
 		</div>
 	</header>
 	<main>
@@ -76,9 +73,7 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
-							<!-- Adicionando a classe 'table-responsive' para tornar a tabela responsiva -->
 							<div class="table-responsive">
-								<!-- Tabela para exibir pedidos de cadastro e ações -->
 								<table class="table">
 									<thead>
 										<tr>
@@ -91,22 +86,29 @@
 										</tr>
 									</thead>
 									<tbody>
-										<!-- Substitua os valores abaixo pelos dados reais do banco de dados -->
+										<%
+										for (Usuario usuario : listaDeClientes) {
+										%>
+										<tr>
+											<td><%=usuario.getNome()%></td>
+											<td><%=usuario.getSobrenome()%></td>
+											<td><%=usuario.getCpf()%></td>
+											<td><%=usuario.getEmail()%></td>
+											<td><%=usuario.getSaldo()%></td>
+										</tr>
+										<%
+										}
+										%>
 										<tr>
 											<td>Nome do Cliente</td>
 											<td>Sobrenome do Cliente</td>
 											<td>123.456.789-00</td>
 											<td>Pendente</td>
 											<td>cliente@email.com</td>
-											<td>
-												<button href="/sistema-bancario/cadastroUsuario?acao=cadastrarUsuario" class="btn btn-success">Cadastrar</button>
-												<button class="btn btn-danger">Recusar</button> <a
-												href="emitirSaldo.jsp" class="btn btn-info">Emitir Saldo</a>
-												<a href="emitirExtrato.jsp" class="btn btn-info">Emitir
-													Extrato</a>
-											</td>
+											<td><a href="emitirSaldo.jsp" class="btn btn-info">Emitir
+													Saldo</a> <a href="emitirExtrato.jsp" class="btn btn-info">Emitir
+													Extrato</a></td>
 										</tr>
-										<!-- Adicione mais linhas conforme necessário -->
 									</tbody>
 								</table>
 							</div>

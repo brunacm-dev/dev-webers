@@ -55,14 +55,12 @@
 			<div class="container mt-5 mb-5 py-5 mx-auto w-50">
 
 				<form id="loginForm" action="/sistema-bancario/auth" method="post">
-					<!-- Nome de usuário (pode ser email) -->
 					<h3 class="mb-4">Insira seus dados</h3>
 					<div class="mb-3">
 						<label for="cpf" class="form-label">Usuário</label> <input
 							type="text" class="form-control" id="username" name="cpf" />
 					</div>
 
-					<!-- Senha -->
 					<div class="mb-3 py-4">
 						<label for="senha" class="form-label">Senha</label> <input
 							type="password" class="form-control" id="senha" name="senha"

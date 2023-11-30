@@ -23,7 +23,6 @@
 
 <body class="bg-light">
 	<header>
-		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fs-5">
 			<div class="container-fluid">
 				<span class="navbar-brand text-light">Smart Bank | </span>
@@ -44,10 +43,6 @@
 					</ul>
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="${pageContext.request.contextPath}/views/form-cadastro.jsp">
-								<i class="bi bi-person-circle"></i> Solicitar Cadastro
-						</a></li>
-						<li class="nav-item"><a class="nav-link" aria-current="page"
 							href="${pageContext.request.contextPath}/views/login-page.jsp">
 								<i class="bi bi-box-arrow-in-right"></i> Login
 						</a></li>
@@ -66,16 +61,12 @@
 		<section>
 			<div class="container-fluid p-5">
 				<div class="row">
-					<!-- Coluna 1 -->
 					<div class="col-md-6 col-lg-6 text-center">
-						<!-- Conteúdo da Coluna 1 -->
 						<h3 class="text-uppercase">Sobre o Website</h3>
 						<p>Esse site foi desenvolvido para a disciplina de dev web</p>
 					</div>
 
-					<!-- Coluna 2 -->
 					<div class="col-md-6 col-lg-6 text-center">
-						<!-- Conteúdo da Coluna 2 -->
 						<h3 class="text-uppercase">Redes Sociais</h3>
 						<ul
 							class="d-flex gap-2 justify-content-center justify-content-lg-center list-unstyled">
@@ -94,7 +85,6 @@
 		</section>
 	</main>
 
-	<!-- Footer -->
 	<footer class="bg-custom text-center text-lg-start ">
 		<div class="bg-dark text-light text-center p-4">
 			<p>
