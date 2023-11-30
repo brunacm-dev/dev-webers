@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,9 +18,10 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/src/css/style.css">
-<title>Smart Bank</title>
+<title>Área do Admin</title>
 </head>
 
+<body class="bg-light">
 <body class="bg-light">
 	<header>
 		<!-- Navbar -->
@@ -55,47 +56,58 @@
 				</div>
 			</div>
 		</nav>
-		<div>
-			<img
-				src="${pageContext.request.contextPath}/resources/images/dev-smart-bank.png"
-				class="img-fluid" alt="Imagem de Header">
+		<div class="bg-dark text-light text-center py-5">
+			<h1>Area do Admin</h1>
 		</div>
 	</header>
-
 	<main>
-		<section>
-			<div class="container-fluid p-5">
-				<div class="row">
-					<!-- Coluna 1 -->
-					<div class="col-md-6 col-lg-6 text-center">
-						<!-- Conteúdo da Coluna 1 -->
-						<h3 class="text-uppercase">Sobre o Website</h3>
-						<p>Esse site foi desenvolvido para a disciplina de dev web</p>
-					</div>
-
-					<!-- Coluna 2 -->
-					<div class="col-md-6 col-lg-6 text-center">
-						<!-- Conteúdo da Coluna 2 -->
-						<h3 class="text-uppercase">Redes Sociais</h3>
-						<ul
-							class="d-flex gap-2 justify-content-center justify-content-lg-center list-unstyled">
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-envelope fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-facebook fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-instagram fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-twitter fs-2"></i></a></li>
-						</ul>
+		<div class="container mt-5">
+			<div class="row justify-content-center">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-body">
+							<!-- Adicionando a classe 'table-responsive' para tornar a tabela responsiva -->
+							<div class="table-responsive">
+								<!-- Tabela para exibir pedidos de cadastro e ações -->
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Nome</th>
+											<th>Sobrenome</th>
+											<th>CPF</th>
+											<th>Status</th>
+											<th>Email</th>
+											<th>Ações</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Substitua os valores abaixo pelos dados reais do banco de dados -->
+										<tr>
+											<td>Nome do Cliente</td>
+											<td>Sobrenome do Cliente</td>
+											<td>123.456.789-00</td>
+											<td>Pendente</td>
+											<td>cliente@email.com</td>
+											<td>
+												<button class="btn btn-success">Cadastrar</button>
+												<button class="btn btn-danger">Recusar</button> <a
+												href="emitirSaldo.jsp" class="btn btn-info">Emitir Saldo</a>
+												<a href="emitirExtrato.jsp" class="btn btn-info">Emitir
+													Extrato</a>
+											</td>
+										</tr>
+										<!-- Adicione mais linhas conforme necessário -->
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	</main>
-
 	<!-- Footer -->
-	<footer class="bg-custom text-center text-lg-start ">
+	<footer class="bg-custom text-center text-lg-start">
 		<div class="bg-dark text-light text-center p-4">
 			<p>
 				2023 <i class="bi bi-c-circle"></i> Smart Bank | Desenvolvido por
@@ -103,14 +115,11 @@
 			</p>
 		</div>
 	</footer>
-
 	<!-- Scripts do Bootstrap (jQuery, Popper.js, Bootstrap JS) via CDN -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-Zd3nAaMDYYArAJ86B/KbKBPFIyLjv7W/TsCjbp3E7LgIfZe8zRb8RLLOESwl/j1a"
 		crossorigin="anonymous"></script>
-
-	<!-- Script para manipular o formulário de login -->
-	<script src="/src/js/login-script.js"></script>
 </body>
+
 </html>

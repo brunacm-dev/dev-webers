@@ -113,9 +113,10 @@ public class UsuarioDAO {
 
 			pstm.setString(1, usuario.getNome());
 			pstm.setString(2, usuario.getSobrenome());
+			pstm.setString(5, usuario.getCpf());
 			pstm.setString(3, usuario.getEmail());
 			pstm.setString(4, usuario.getSenha());
-			pstm.setString(5, usuario.getCpf());
+			
 
 			pstm.executeUpdate();
 			return true;
@@ -142,5 +143,10 @@ public class UsuarioDAO {
 		} finally {
 			db.closeConexao();
 		}
+	}
+
+	public boolean cadastrarUsuario(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

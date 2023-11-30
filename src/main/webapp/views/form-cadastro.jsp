@@ -18,7 +18,7 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/src/css/style.css">
-<title>Smart Bank</title>
+<title>Solicitaçao de Cadastro</title>
 </head>
 
 <body class="bg-light">
@@ -42,60 +42,63 @@
 							href="${pageContext.request.contextPath}/views/contato.jsp">Contato</a>
 						</li>
 					</ul>
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="${pageContext.request.contextPath}/views/form-cadastro.jsp">
-								<i class="bi bi-person-circle"></i> Solicitar Cadastro
-						</a></li>
-						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="${pageContext.request.contextPath}/views/login-page.jsp">
-								<i class="bi bi-box-arrow-in-right"></i> Login
-						</a></li>
-					</ul>
 				</div>
 			</div>
 		</nav>
-		<div>
-			<img
-				src="${pageContext.request.contextPath}/resources/images/dev-smart-bank.png"
-				class="img-fluid" alt="Imagem de Header">
+		<div class="bg-dark text-light text-center py-5">
+			<h1>Solicitação de Cadastro</h1>
 		</div>
 	</header>
-
 	<main>
-		<section>
-			<div class="container-fluid p-5">
-				<div class="row">
-					<!-- Coluna 1 -->
-					<div class="col-md-6 col-lg-6 text-center">
-						<!-- Conteúdo da Coluna 1 -->
-						<h3 class="text-uppercase">Sobre o Website</h3>
-						<p>Esse site foi desenvolvido para a disciplina de dev web</p>
-					</div>
+		<div class="container mt-4 py-4">
 
-					<!-- Coluna 2 -->
-					<div class="col-md-6 col-lg-6 text-center">
-						<!-- Conteúdo da Coluna 2 -->
-						<h3 class="text-uppercase">Redes Sociais</h3>
-						<ul
-							class="d-flex gap-2 justify-content-center justify-content-lg-center list-unstyled">
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-envelope fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-facebook fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-instagram fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-twitter fs-2"></i></a></li>
-						</ul>
-					</div>
+			<form id="registerForm" method="post">
+				<!-- Nome e Sobrenome -->
+				<h3>Insira seus dados</h3>
+				<div class="mb-3">
+					<label for="nome" class="form-label">Nome</label> <input
+						type="text" class="form-control" id="nome" name="nome" required />
 				</div>
-			</div>
-		</section>
-	</main>
+				<div class="mb-3">
+					<label for="sobrenome" class="form-label">Sobrenome</label> <input
+						type="text" class="form-control" id="sobrenome" name="sobrenome"
+						required />
+				</div>
 
+				<!-- CPF -->
+				<div class="mb-3">
+					<label for="cpf" class="form-label">CPF</label> <input type="text"
+						class="form-control" id="cpf" name="cpf"
+						pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+						placeholder="Formato: 123.456.789-01" required />
+				</div>
+
+				<!-- Email e Senha -->
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label> <input
+						type="email" class="form-control" id="email" name="email"
+						pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+						placeholder="Formato: seuemail@email.com" required />
+				</div>
+
+				<h3>Escolha sua senha de login</h3>
+				<div class="mb-3">
+					<label for="senha" class="form-label">Senha</label> <input
+						type="password" class="form-control" id="senha" name="senha"
+						required />
+				</div>
+
+				<button type="submit" class="btn btn-primary">Cadastrar</button>
+			</form>
+
+			<div id="confirmacaoMensagem" class="mt-3 d-none">
+				<h3>Aguarde confirmação!</h3>
+				<p>Seu cadastro foi recebido e está em análise.</p>
+			</div>
+		</div>
+	</main>
 	<!-- Footer -->
-	<footer class="bg-custom text-center text-lg-start ">
+	<footer class="bg-custom text-center text-lg-start">
 		<div class="bg-dark text-light text-center p-4">
 			<p>
 				2023 <i class="bi bi-c-circle"></i> Smart Bank | Desenvolvido por
@@ -110,7 +113,9 @@
 		integrity="sha384-Zd3nAaMDYYArAJ86B/KbKBPFIyLjv7W/TsCjbp3E7LgIfZe8zRb8RLLOESwl/j1a"
 		crossorigin="anonymous"></script>
 
-	<!-- Script para manipular o formulário de login -->
-	<script src="/src/js/login-script.js"></script>
+	<!-- Script para o recebimento de cadastro  -->
+	<script
+		src="${pageContext.request.contextPath}/src/js/register-script.js"></script>
 </body>
+
 </html>

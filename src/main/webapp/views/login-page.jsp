@@ -18,7 +18,7 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/src/css/style.css">
-<title>Smart Bank</title>
+<title>Login</title>
 </head>
 
 <body class="bg-light">
@@ -42,59 +42,39 @@
 							href="${pageContext.request.contextPath}/views/contato.jsp">Contato</a>
 						</li>
 					</ul>
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="${pageContext.request.contextPath}/views/form-cadastro.jsp">
-								<i class="bi bi-person-circle"></i> Solicitar Cadastro
-						</a></li>
-						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="${pageContext.request.contextPath}/views/login-page.jsp">
-								<i class="bi bi-box-arrow-in-right"></i> Login
-						</a></li>
-					</ul>
 				</div>
 			</div>
 		</nav>
-		<div>
-			<img
-				src="${pageContext.request.contextPath}/resources/images/dev-smart-bank.png"
-				class="img-fluid" alt="Imagem de Header">
+		<div class="bg-dark text-light text-center py-5">
+			<h1>Login</h1>
 		</div>
+
 	</header>
-
 	<main>
-		<section>
-			<div class="container-fluid p-5">
-				<div class="row">
-					<!-- Coluna 1 -->
-					<div class="col-md-6 col-lg-6 text-center">
-						<!-- Conteúdo da Coluna 1 -->
-						<h3 class="text-uppercase">Sobre o Website</h3>
-						<p>Esse site foi desenvolvido para a disciplina de dev web</p>
+		<section class="p-5">
+			<div class="container mt-5 mb-5 py-5 mx-auto w-50">
+
+				<form id="loginForm" onsubmit="handleLogin(); return false;">
+					<!-- Nome de usuário (pode ser email) -->
+					<h3 class="mb-4">Insira seus dados</h3>
+					<div class="mb-3">
+						<label for="username" class="form-label">Usuário</label> <input
+							type="text" class="form-control" id="username" name="username" />
 					</div>
 
-					<!-- Coluna 2 -->
-					<div class="col-md-6 col-lg-6 text-center">
-						<!-- Conteúdo da Coluna 2 -->
-						<h3 class="text-uppercase">Redes Sociais</h3>
-						<ul
-							class="d-flex gap-2 justify-content-center justify-content-lg-center list-unstyled">
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-envelope fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-facebook fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-instagram fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-twitter fs-2"></i></a></li>
-						</ul>
+					<!-- Senha -->
+					<div class="mb-3 py-4">
+						<label for="senha" class="form-label">Senha</label> <input
+							type="password" class="form-control" id="senha" name="senha"
+							required />
 					</div>
-				</div>
+
+					<button type="submit" class="btn btn-primary">Entrar</button>
+				</form>
 			</div>
 		</section>
 	</main>
 
-	<!-- Footer -->
 	<footer class="bg-custom text-center text-lg-start ">
 		<div class="bg-dark text-light text-center p-4">
 			<p>
@@ -104,13 +84,8 @@
 		</div>
 	</footer>
 
-	<!-- Scripts do Bootstrap (jQuery, Popper.js, Bootstrap JS) via CDN -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-Zd3nAaMDYYArAJ86B/KbKBPFIyLjv7W/TsCjbp3E7LgIfZe8zRb8RLLOESwl/j1a"
-		crossorigin="anonymous"></script>
-
-	<!-- Script para manipular o formulário de login -->
-	<script src="/src/js/login-script.js"></script>
 </body>
+
+</html>
+
 </html>

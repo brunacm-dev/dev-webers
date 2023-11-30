@@ -18,7 +18,7 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/src/css/style.css">
-<title>Smart Bank</title>
+<title>Contato</title>
 </head>
 
 <body class="bg-light">
@@ -55,47 +55,57 @@
 				</div>
 			</div>
 		</nav>
-		<div>
-			<img
-				src="${pageContext.request.contextPath}/resources/images/dev-smart-bank.png"
-				class="img-fluid" alt="Imagem de Header">
+		<div class="bg-dark text-light text-center py-5">
+			<h1>Contato</h1>
 		</div>
 	</header>
+	Ï
 
 	<main>
-		<section>
-			<div class="container-fluid p-5">
+		<section class="p-5">
+			<div class="container p-4">
 				<div class="row">
-					<!-- Coluna 1 -->
-					<div class="col-md-6 col-lg-6 text-center">
-						<!-- Conteúdo da Coluna 1 -->
-						<h3 class="text-uppercase">Sobre o Website</h3>
-						<p>Esse site foi desenvolvido para a disciplina de dev web</p>
+					<div class="col-lg-6">
+						<h2 class="mb-4">Informações de Contato</h2>
+						<p>
+							<i class="bi bi-geo-alt-fill fs-3"></i> Endereço: Rua UFF, 123,
+							Niteroi, RJ
+						</p>
+						<p>
+							<i class="bi bi-envelope-fill fs-3"></i> E-mail:
+							dev-webers@meusite.com
+						</p>
+						<p>
+							<i class="bi bi-phone-fill fs-3"></i> Telefone: (21) 3456-7890
+						</p>
 					</div>
-
-					<!-- Coluna 2 -->
-					<div class="col-md-6 col-lg-6 text-center">
-						<!-- Conteúdo da Coluna 2 -->
-						<h3 class="text-uppercase">Redes Sociais</h3>
-						<ul
-							class="d-flex gap-2 justify-content-center justify-content-lg-center list-unstyled">
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-envelope fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-facebook fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-instagram fs-2"></i></a></li>
-							<li><a href="#" class="social-icon text-dark"><i
-									class="bi bi-twitter fs-2"></i></a></li>
-						</ul>
+					<div class="col-lg-6">
+						<h2 class="mb-4">Entre em Contato</h2>
+						<form>
+							<div class="mb-3">
+								<label for="name" class="form-label">Nome</label> <input
+									type="text" class="form-control" id="name"
+									placeholder="Seu nome" required />
+							</div>
+							<div class="mb-3">
+								<label for="email" class="form-label">E-mail</label> <input
+									type="email" class="form-control" id="email"
+									placeholder="Seu e-mail" required />
+							</div>
+							<div class="mb-3">
+								<label for="message" class="form-label">Mensagem</label>
+								<textarea class="form-control" id="message" rows="5"
+									placeholder="Digite sua mensagem"></textarea>
+							</div>
+							<button type="submit" class="btn btn-secondary">Enviar</button>
+						</form>
 					</div>
 				</div>
 			</div>
 		</section>
 	</main>
 
-	<!-- Footer -->
-	<footer class="bg-custom text-center text-lg-start ">
+	<footer class="bg-custom text-center text-lg-start">
 		<div class="bg-dark text-light text-center p-4">
 			<p>
 				2023 <i class="bi bi-c-circle"></i> Smart Bank | Desenvolvido por
@@ -104,13 +114,5 @@
 		</div>
 	</footer>
 
-	<!-- Scripts do Bootstrap (jQuery, Popper.js, Bootstrap JS) via CDN -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-Zd3nAaMDYYArAJ86B/KbKBPFIyLjv7W/TsCjbp3E7LgIfZe8zRb8RLLOESwl/j1a"
-		crossorigin="anonymous"></script>
-
-	<!-- Script para manipular o formulário de login -->
-	<script src="/src/js/login-script.js"></script>
 </body>
 </html>
