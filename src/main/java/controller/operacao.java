@@ -45,7 +45,6 @@ public class operacao extends HttpServlet {
 		// TODO Auto-generated method stub
 		float valor = Float.parseFloat(request.getParameter("valor"));
 		String action = request.getParameter("action");
-		System.out.println(action);
 		HttpSession sessao = request.getSession();
 		Operacao operacao = null;
 		Usuario usuario = (Usuario)sessao.getAttribute("usuario");
@@ -54,7 +53,6 @@ public class operacao extends HttpServlet {
 		if(usuario !=  null) {
 			Conta conta = contaDAO.get(usuario.getCpf());
 			if(action.equals("depositar")) {
-				System.out.println(conta.getSaldo() + conta.getCpf());
 				operacao = new Operacao(conta.getCodigo(), 1, valor );
 				conta.depositar(valor);
 				contaDAO.update(conta);

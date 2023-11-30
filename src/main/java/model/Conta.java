@@ -40,9 +40,7 @@ public class Conta {
 	}
 	
 	public void depositar(float valor) {
-		System.out.println(this.saldo + "-" + valor);
 		this.saldo = this.saldo + valor;
-		System.out.println(this.saldo + "-" + valor);
 	}
 	
 	public void sacar(float valor) {
