@@ -54,6 +54,7 @@ public class auth extends HttpServlet {
 		
 //		System.out.println(usuario.getNome());	
 		if(usuario != null && senha.equals(usuario.getSenha())) {
+			
 //			System.out.println("Usuario encontrado");
 			//Criar sessao com o usuario
 			if(usuario.isAdmin()) {
