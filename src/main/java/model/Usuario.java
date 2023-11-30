@@ -5,6 +5,7 @@ public class Usuario {
 	private String sobrenome;
 	private String email;
 	private int tipo;
+	private int status;
 	private String cpf;
 	private String senha;
 
@@ -12,12 +13,13 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(String nome, String sobrenome, String email, int tipo, String cpf, String senha) {
+	public Usuario(String nome, String sobrenome, String email, int tipo, int status, String cpf, String senha) {
 		super();
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.email = email;
 		this.tipo = tipo;
+		this.status = status;
 		this.cpf = cpf;
 		this.senha = senha;
 	}
@@ -76,6 +78,18 @@ public class Usuario {
 	
 	public boolean isClient() {
 		return this.tipo == 0;
+	}
+	
+	public void SetEmSolicitacao() {
+		this.status = 0;
+	}
+	
+	public void SetCliente() {
+		this.tipo = 0;
+	}
+	
+	public void SetAdmin() {
+		this.tipo = 0;
 	}
 
 }
